@@ -45,33 +45,36 @@ const AddPost = () => {
 
 
     return(
-        <div className="submit_form">
+        <div className="add_container">
+            <h1>ADD POST</h1>
             { submitted ? (
             <div>
                 <h4>You submitted successfully!</h4>
                 <button className="add_button" onClick={newPost}>Add</button>
             </div>
             ) : (
-                <div>
-                    <div className="fourm_group">
+                <div className="add_form">
+                    <div className="form_group">
                         <label htmlFor="title">Title</label>
                         <input 
                             type="text"
-                            className="form-control"
+                            className="form"
                             id="title"
                             required
                             value={post.title}
                             onChange={handleInputChange}
                             name="title"
+                            placeholder="Enter title"
                         />
                     </div>
-                    <div className="fourm_group">
+                    <div className="form_group">
                         <label htmlFor="body">Body</label>
-                        <input 
+                        <textarea 
                             type="text"
-                            className="form-control"
+                            className="body_input"
                             id="body"
                             required
+                            placeholder="Tell us something"
                             value={post.body}
                             onChange={handleInputChange}
                             name="body"

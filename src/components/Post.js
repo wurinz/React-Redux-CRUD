@@ -56,9 +56,7 @@ const Post = (props) => {
     const updateContent = () => {
         dispatch(updatePost(currentPost.id, currentPost))
             .then(response => {
-                console.log(response);
-
-                setMessage("Post has been deployed")
+                props.history.push('/posts');
             }).catch(error => console.log(error));
     }
 
@@ -75,8 +73,8 @@ const Post = (props) => {
         <div>
             {currentPost ? (
                 <div className="post_container">
-                    <h4>Post</h4>
-                    <form>
+                    <h1>Post</h1>
+                    <div className="update_form">
                         <div className="form_group">
                             <label htmlFor="title">Title</label>
                             <input 
@@ -90,7 +88,7 @@ const Post = (props) => {
                         </div>
                         <div className="form_group">
                             <label htmlFor="body">Body</label>
-                            <input 
+                            <textarea 
                                 type="text"
                                 className="form_control"
                                 id="post_body"
@@ -99,12 +97,13 @@ const Post = (props) => {
                                 onChange={handleInputChange}
                             />
                         </div>
-                    </form>
+                    </div>
                     <button
                         className="delete_button"                    
                         onClick={removePost}
                     >Delete Post</button>
                     <button
+                        className="update_button"
                         onClick={updateContent}
                     >Update</button>
                 </div>

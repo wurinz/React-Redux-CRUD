@@ -56,7 +56,7 @@ const PostsList = () => {
 
     return(
         <div className="posts_container">
-            <div className="search_container">
+            {/* <div className="search_container">
                 <input 
                     type="text"
                     className="search_input"
@@ -68,9 +68,9 @@ const PostsList = () => {
                     className="search_button"
                     onClick={findPostByTitle}
                 >Search</button>
-            </div>
+            </div> */}
             <div className="list_container">
-                <h4>Posts List</h4>
+                <h1>Posts List</h1>
                 <div className="posts_container">
                     { posts && posts.map((post, index) => {
                         return <div 
@@ -79,9 +79,11 @@ const PostsList = () => {
                             onMouseEnter={()=> setActivePost(post, index)}
                             key={index}
                         >
-                            <h4>{post.title}</h4>
-                            <p>{post.body}</p>
-                            <Link to={`/posts/${currentPost?.id}`}>Read more...</Link>
+                            <div className="post_header">
+                                <h4>Title: {post.title}</h4>
+                                <Link className="post_read_more" to={`/posts/${currentPost?.id}`}>Read more...</Link>
+                            </div>
+                            <p className="post_body">{post.body}</p>
                         </div>
 
                     }) }
