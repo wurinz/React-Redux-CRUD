@@ -14,6 +14,7 @@ body {
   background-image: url("./img/2037934.jpg");
   background-attachment: fixed;
   background-size: cover;
+  letter-spacing: 1px;
 }
 
 code {
@@ -32,7 +33,6 @@ h1{
 
 }
 h4{
-  margin-top: 30px;
   font-size: 25px;
   font-weight: 100;
 }
@@ -101,7 +101,7 @@ nav div{
   border-right: 1px solid rgba(255, 255, 255, 0.336);
   border-bottom: 1px solid rgba(255, 255, 255, 0.233);
   margin-right: 5px;
-  padding: 7px 90px;
+  padding: 9px 90px;
 }
 nav div:hover{
   background: rgba(255, 255, 255, 0.199);
@@ -137,7 +137,6 @@ nav div:hover{
 }
 .post:hover{
   background:rgba(255, 255, 255, 0.13);
-  cursor: pointer;
   border-left: 3px solid rgba(255, 255, 255, 0.288);
 }
 
@@ -156,7 +155,9 @@ nav div:hover{
 .post_read_more{
   font-size: 20px;
   font-weight: 100;
-
+}
+.post_read_more:hover{
+  cursor: pointer;
 }
 
 .post_body{
@@ -230,6 +231,9 @@ textarea::placeholder{
 .add_button:hover, .update_button:hover{
   cursor: pointer;
   background-color: rgba(2, 177, 2, 0.733);
+}
+.success_message{
+  margin-top: 40px;
 }
 
 

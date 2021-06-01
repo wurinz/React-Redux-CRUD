@@ -27,19 +27,21 @@ const App = () => {
     <Router>
       <div className="container">
       <nav>
-          <div className="navbar_posts">
-            <Link to={'/posts'}>
-              Posts
-            </Link>
-          </div>
-          <div className="navbar_add_post">
-            <Link to={'/add'}>
-              Add post
-            </Link>
-          </div>
-          <div className="navbar_gihub">
-            <a href="https://github.com/wurinz/React-Redux-CRUD" target="_blank">Watch on GithHub</a>
-          </div>
+          <Link to={'/posts'}>
+            <div className="navbar_posts">
+                Posts
+            </div>
+          </Link>
+          <Link to={'/add'}>
+            <div className="navbar_add_post">
+                Add post
+            </div>
+          </Link>
+            <a href="https://github.com/wurinz/React-Redux-CRUD" target="_blank">
+              <div className="navbar_gihub">
+                Check on GithHub
+              </div>
+            </a>
       </nav>
 
 

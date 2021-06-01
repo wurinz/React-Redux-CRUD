@@ -72,7 +72,7 @@ const PostsList = () => {
             <div className="list_container">
                 <h1>Posts List</h1>
                 <div className="posts_container">
-                    { posts && posts.map((post, index) => {
+                    { posts && posts.slice('').reverse().map((post, index) => {
                         return <div 
                             className="post"
                             onClick={() => setActivePost(post, index)}
@@ -80,8 +80,8 @@ const PostsList = () => {
                             key={index}
                         >
                             <div className="post_header">
-                                <h4>Title: {post.title}</h4>
-                                <Link className="post_read_more" to={`/posts/${currentPost?.id}`}>Read more...</Link>
+                                    <h4>Title: {post.title}</h4>
+                                    <Link className="post_read_more" to={`/posts/${currentPost?.id}`}>Read more...</Link>
                             </div>
                             <p className="post_body">{post.body}</p>
                         </div>

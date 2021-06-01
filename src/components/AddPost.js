@@ -8,6 +8,7 @@ const AddPost = () => {
         id: null,
         title: '',
         body: '', 
+        comments: [],
         published: false
     };
 
@@ -22,14 +23,15 @@ const AddPost = () => {
     };
 
     const savePost = () => {
-        const { title, body } = post;
+        const { title, body, comments } = post;
 
-        dispatch(createPost(title, body))
+        dispatch(createPost(title, body, comments))
             .then(data => {
                 setPost({
                     id: data.id,
                     title: data.title,
                     body: data.body,
+                    // comments: [],
                     published: data.published
                 });
                 setSubmitted(true);
@@ -49,8 +51,8 @@ const AddPost = () => {
             <h1>ADD POST</h1>
             { submitted ? (
             <div>
-                <h4>You submitted successfully!</h4>
-                <button className="add_button" onClick={newPost}>Add</button>
+                <h4 className="success_message">You submitted successfully!</h4>
+                <button className="add_button" onClick={newPost}>Add More</button>
             </div>
             ) : (
                 <div className="add_form">
