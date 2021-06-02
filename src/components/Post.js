@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updatePost, deletePost } from '../actions/posts'
 import axios from '../services/PostService'
+
+
 const Post = (props) => {
     const initialPostState = {
         id: null, 
         title: "",
         description: "",
+        comments: [],
         published: false
     }
 
-    console.log(props)
     const [ currentPost, setCurrentPost ] = useState(initialPostState);
-    const [ message, setMessage ] = useState("");
 
     const dispatch = useDispatch();
 
@@ -32,26 +33,13 @@ const Post = (props) => {
 
     const handleInputChange = event => {
         const { name, value } = event.target;
+        if(name === "comment"){
+            currentPost.comments?.push(value);
+            
+        }
         setCurrentPost({...currentPost, [name]: value});
     };
 
-    const updateStatus = status => {
-        const data = {
-            id: currentPost.id,
-            title: currentPost.title,
-            body: currentPost.body,
-            published: status
-        }
-
-    dispatch(updatePost(currentPost.id, data))
-        .then(response => {
-            console.log(response);
-            setCurrentPost({...currentPost, published: status});
-            setMessage("Updated successfully!");
-        }).catch(error => {
-            console.log(error);
-        });
-    };
 
     const updateContent = () => {
         dispatch(updatePost(currentPost.id, currentPost))
@@ -59,6 +47,9 @@ const Post = (props) => {
                 props.history.push('/posts');
             }).catch(error => console.log(error));
     }
+
+
+
 
     const removePost = () => {
         dispatch(deletePost(currentPost.id)).then(() => {
@@ -110,6 +101,32 @@ const Post = (props) => {
             ) : (<p>
                 Choose post
             </p>)}
+            <div className="comments_container">
+                <textarea 
+                    onChange={handleInputChange}
+                    type="text"
+                    name="comment"
+                    className="comment_input"
+                />
+                <button 
+                    className="add_comment_button"
+                    onClick={updateContent}
+                >Add comment</button>
+                <div className="comments">
+                    <h2>Comments</h2>
+                    { console.log(currentPost.comments) }
+                    { currentPost.comments?.map(comment => {
+                        return <div className="comment">
+                            <p className="comment_header">Comment</p>
+                            <p className="comments_text">{comment}</p>
+                        </div>
+                    }) }
+                    {/* <div className="comment">
+                        <p className="comment_header">Comment</p>
+                        {currentPost.comment}
+                    </div> */}
+                </div>
+            </div>
         </div>
     )
 }

@@ -4,8 +4,6 @@ import {
     UPDATE_POST,
     DELETE_POST,
     DELETE_ALL_POSTS, 
-    CREATE_COMMENT,
-    UPDATE_COMMENT
 } from '../actions/types';
 
 const initialState = [];

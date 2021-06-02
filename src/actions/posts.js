@@ -35,7 +35,6 @@ export const retrievePosts = () => async (dispatch) => {
 }
 
 export const updatePost = (id, data) => async (dispatch) => {
-    console.log('UPDATE FIRED')
     try{
         const res = await axios.update(id, data);
         dispatch({
@@ -86,15 +85,5 @@ export const findPostByTitle = (title) => async (dispatch) => {
         console.log(error);
     }
 }
-
-// export const addComment = (id, data) => async (dispatch) => {
-//     try{
-//         const res = await axios.
-//     } catch(error){
-//         console.log(error)
-//     }
-// }
-
-
 
 

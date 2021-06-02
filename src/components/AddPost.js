@@ -31,7 +31,7 @@ const AddPost = () => {
                     id: data.id,
                     title: data.title,
                     body: data.body,
-                    // comments: [],
+                    comments: comments,
                     published: data.published
                 });
                 setSubmitted(true);

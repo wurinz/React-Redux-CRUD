@@ -22,11 +22,6 @@ const PostsList = () => {
         dispatch(retrievePosts());
     }, [])
 
-    const onChangeSearhTitle = event => {
-        const searchTitle = event.target.value;
-        setSearchTitle(setSearchTitle);
-    }
-
     const refreshData = () => {
         setCurrentPost(null);
         setCurrentIndex(-1);
@@ -38,37 +33,8 @@ const PostsList = () => {
         setCurrentIndex(index);
     }
 
-    const removeAllPosts = () => {
-        dispatch(deleteAllPosts())
-            .then(response => {
-                console.log(response);
-                refreshData();
-            })
-            .catch(event => {
-                console.log(event);
-            })
-    }
-
-    const findByTitle = () => {
-        refreshData();
-        dispatch(findPostByTitle(searchTitle));
-    }
-
     return(
         <div className="posts_container">
-            {/* <div className="search_container">
-                <input 
-                    type="text"
-                    className="search_input"
-                    placeholder="Search by title"
-                    value={searchTitle}
-                    onChange={onChangeSearhTitle}
-                />
-                <button
-                    className="search_button"
-                    onClick={findPostByTitle}
-                >Search</button>
-            </div> */}
             <div className="list_container">
                 <h1>Posts List</h1>
                 <div className="posts_container">

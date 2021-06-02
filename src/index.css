@@ -119,7 +119,7 @@ nav div:hover{
 .posts_container{
   padding: 30px 0;
 }
-.post, .add_container, .post_container{
+.post, .add_container, .post_container, .comment{
   color: #fff;
   width: 60%;
   margin: 30px auto;
@@ -155,6 +155,8 @@ nav div:hover{
 .post_read_more{
   font-size: 20px;
   font-weight: 100;
+  width: 180px;
+  text-align: right;
 }
 .post_read_more:hover{
   cursor: pointer;
@@ -170,7 +172,9 @@ nav div:hover{
 
 /* ADD POST */
 .add_container, .post_container{
-  margin: 100px auto;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 40px;
   padding-bottom: 30px;
 }
 .add_form{
@@ -203,7 +207,7 @@ label{
 textarea{
   outline: none;
   width: 100%;
-  background: rgba(255, 255, 255, 0.144);
+  background: rgba(255, 255, 255, 0.089);
   border-radius: 7px;
   padding: 10px 15px;
   resize: none;
@@ -217,7 +221,7 @@ textarea::placeholder{
   font-weight: 100;
 }
 
-.add_button, .update_button, .delete_button{
+.add_button, .update_button, .delete_button, .add_comment_button{
   border: none;
   width: 220px;
   height: 38px;
@@ -244,4 +248,36 @@ textarea::placeholder{
 }
 .delete_button:hover{
   background-color: rgb(156, 4, 4);
+}
+
+/* COMMENT */
+.comments h2{
+  text-align: center;
+  font-weight: 100;
+  margin-top: 80px;
+  margin-left: 250px;
+}
+.comments_container{
+  width: 60%;
+  margin: auto;
+}
+.add_comment_button{
+  margin: 15px 30px 40px 0;
+  background: rgb(17, 112, 255);
+  float: right;
+}
+.add_comment_button:hover{
+  background: rgb(43, 127, 253);
+  cursor: pointer;
+}
+.comment{
+  font-weight: 100;
+  text-align: left;
+  padding: 20px 30px;
+  width: 100%;
+}
+.comment_header{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.493);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
